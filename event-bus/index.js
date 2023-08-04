@@ -12,16 +12,16 @@ app.post("/events", (req, res) => {
 
   events.push(event);
 
-  axios.post("http://post:4000/events", event).catch((err) => {
+  axios.post("http://post-cluster-srv:4000/events", event).catch((err) => {
     console.log(err.message);
   });
-  axios.post("http://comments:4001/events", event).catch((err) => {
+  axios.post("http://comments-cluster-srv:4001/events", event).catch((err) => {
     console.log(err.message);
   });
-  axios.post("http://query:4002/events", event).catch((err) => {
+  axios.post("http://query-cluster-srv:4002/events", event).catch((err) => {
     console.log(err.message);
   });
-  axios.post("http://moderation:4003/events", event).catch((err) => {
+  axios.post("http://moderation-cluster-srv:4003/events", event).catch((err) => {
     console.log(err.message);
   });
   res.send({ status: "OK" });
