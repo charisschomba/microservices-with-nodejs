@@ -1,0 +1,79 @@
+version: "3.8"
+
+services:
+  post:
+    container_name: post
+    build:
+      context: ./posts
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    networks:
+      test-net:
+    depends_on:
+      - event-bus
+    restart: on-failure
+  
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      test-net:
+    restart: on-failure
+  
+  comments:
+    container_name: comments
+    build:
+      context: ./comments
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+    depends_on:
+      - event-bus
+    networks:
+      test-net:
+    restart: on-failure
+
+  event-bus:
+    container_name: event-bus
+    build:
+      context: ./event-bus
+      dockerfile: Dockerfile
+    ports:
+      - "4005:4005"
+    networks:
+      test-net:
+    restart: on-failure
+
+  moderation:
+    container_name: moderation
+    build:
+      context: ./moderation
+      dockerfile: Dockerfile
+    ports:
+      - "4003:4003"
+    depends_on:
+      - event-bus
+    networks:
+      test-net:
+    restart: on-failure
+
+  query:
+    container_name: query
+    build:
+      context: ./query
+      dockerfile: Dockerfile
+    ports:
+      - "4002:4002"
+    depends_on:
+      - event-bus
+    networks:
+      test-net:
+    restart: on-failure
+
+networks:
+  test-net:

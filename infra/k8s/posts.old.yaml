@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: post-pod
+spec:
+  containers:
+    - name: posts
+      image: chariss/posts:0.0.1
+    - name: event-bus
+      image: chariss/event-bus:0.0.1
