@@ -13,7 +13,7 @@ spec:
         app: moderation
     spec:
       containers:
-        - name: posts
+        - name: moderation
           image: chariss/moderation
 
 ---
