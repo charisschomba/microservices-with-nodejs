@@ -3,18 +3,20 @@ const bodyParser = require("body-parser");
 const { randomBytes } = require("crypto");
 const cors = require("cors");
 const axios = require("axios");
+const volleyball = require('volleyball')
 
 const app = express();
+app.use(volleyball)
 app.use(bodyParser.json());
 app.use(cors());
 
 const posts = {};
 
-app.get("/posts/create", (req, res) => {
+app.get("/posts", (req, res) => {
   res.send(posts);
 });
 
-app.post("/posts", async (req, res) => {
+app.post("/posts/create", async (req, res) => {
   const id = randomBytes(4).toString("hex");
   const { title } = req.body;
 

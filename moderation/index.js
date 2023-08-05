@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const volleyball = require('volleyball')
 
 const app = express();
+app.use(volleyball)
 app.use(bodyParser.json());
 
 app.post('/events', async (req, res) => {
