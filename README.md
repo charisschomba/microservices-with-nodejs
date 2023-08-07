@@ -2,6 +2,7 @@
 
 ### Requirements:
 
+- Linux or MacOS
 - [Docker Engine](https://docs.docker.com/engine/install/)
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/)
@@ -19,9 +20,8 @@
 - Edit hosts file to redirect posts.com to minikube ip.
 - First get minikube ip by running `minikube ip`
 - [Enable ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). `minikube addons enable ingress`
-- [Edit hosts windows](https://www.hostinger.com/tutorials/how-to-edit-hosts-file)
 - Add this `[Minikube ip] posts.com`
-- Linux/MacOS, open hosts file, `sudo nano /etc/hosts`
+- Open hosts file, `sudo nano /etc/hosts`
 - Add this `[Minikube ip] posts.com`
 
   #### Testing
