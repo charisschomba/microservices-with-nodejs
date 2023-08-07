@@ -10,9 +10,15 @@
 #### How to setup:
 
 - Clone this repository `https://github.com/charisschomba/microservices-with-nodejs-demo.git`
+- Setup kubernetes cluster. `minikube start`
+#### Note
+- For linux users start minikube with kvm driver 'minikube start --driver=kvm2`
+
+  [KVM2 installation](https://phoenixnap.com/kb/ubuntu-install-kvm)
 - Navigate to microservices-with-nodejs-demo and run `skaffold dev` to configure deployments, pods and service in the kubernetes cluster.
 - Edit hosts file to redirect posts.com to minikube ip.
 - First get minikube ip by running `minikube ip`
+- [Enable ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). `minikube addons enable ingress`
 - [Edit hosts windows](https://www.hostinger.com/tutorials/how-to-edit-hosts-file)
 - Add this `[Minikube ip] posts.com`
 - Linux/MacOS, open hosts file, `sudo nano /etc/hosts`
