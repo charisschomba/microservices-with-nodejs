@@ -10,10 +10,17 @@
 
 #### How to setup:
 
-- Clone this repository `https://github.com/charisschomba/setup-kubernetes-localhost.git`
-- Setup kubernetes cluster. `minikube start`
+- Clone this repository `git clone https://github.com/charisschomba/setup-kubernetes-localhost.git`
+- Setup kubernetes cluster. 
+    - `minikube start --profile custom`
+    - `skaffold config set --global local-cluster true`
+    - `eval $(minikube -p custom docker-env)`
 #### Note
-- For linux users start minikube with kvm driver 'minikube start --driver=kvm2`
+- For linux users start minikube with kvm driver
+
+    - `minikube start --driver=kvm2 --profile custom`
+    - `skaffold config set --global local-cluster true`
+    - `eval $(minikube -p custom docker-env)`
 
   [KVM2 installation](https://phoenixnap.com/kb/ubuntu-install-kvm)
 - Navigate to `setup-kubernetes-localhost` and run `skaffold dev` to configure deployments, pods and service in the kubernetes cluster.
